@@ -1,93 +1,100 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <title>Website Hùng Blog</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      * {
-        box-sizing: border-box;
-      }
+<head>
+<meta charset="UTF-8">
+<title>Tab Hung Blog</title>
 
-      body {
-        margin: 0;
-      }
+<style>
+body {
+  font-family: Arial;
+}
 
-      /* Định dạng header */
-      .header {
-        background-color: #e9d8f4;
-        color: #58257b;
-        padding: 10px;
-        text-align: center;
-      }
+/* TAB MENU */
+.tab {
+  display: flex;
+  background: #5b2c6f;
+}
 
-      /* Định dạng thanh điều hướng trên cùng */
-      .topnav {
-        overflow: hidden;
-        background-color: #58257b;
-      }
+.tab button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
 
-      /* Định dạng link điều hướng */
-      .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
+.tab button:hover {
+  background: #6c3483;
+}
 
-      /* Thay đổi màu liên kết khi di chuột qua */
-      .topnav a:hover {
-        background-color: #db7093;
-        color: white;
-        font-weight: bold
-      }
+.tab button.active {
+  background: #8e44ad;
+  font-weight: bold;
+}
 
-      /* Tạo ba cột bằng nhau, float cạnh nhau */
-      .column {
-        float: left;
-        width: 33.33%;
-        padding: 15px;
-      }
+/* TAB CONTENT */
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background: #f4f4f4;
+}
 
-      /* Clear float khác sau các cột */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
+/* Hiện tab đầu */
+.tabcontent.active {
+  display: block;
+}
+</style>
 
-      /* Bố cục linh hoạt: ba cột xếp chồng lên nhau thay vì cạnh nhau khi màn hình có chiều rộng dưới 600px */
-      @media screen and (max-width:600px) {
-        .column {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <h1>Website Hùng Blog</h1>
-    </div>
-    <div class="topnav">
-      <a href="https://hungblog.com/" target='_blank'>HungBlog.Com</a>
-      <a href="https://hung.pro.vn" target='_blank'>Hùng Pro Việt Nam</a>
-      <a href="https://hungevn.com" target='_blank'>Hùng EVN</a>
-    </div>
-    <div class="row">
-      <div class="column">
-        <h2>Làng Công nghệ</h2>
-        <p>Cập nhật những xu hướng, khám phá, nghiên cứu mới nhất về khoa học công nghệ.</p>
-      </div>
-      <div class="column">
-        <h2>Công nghệ</h2>
-        <p>bao gồm thủ thuật, hướng dẫn sử dụng phần mềm, phần cứng, sửa lỗi mạng, sửa lỗi máy tính trên nhiều hệ điều hành như Windows, macOS, Linux, Android, iOS...</p>
-      </div>
-      <div class="column">
-        <h2>Cuộc sống</h2>
-        <p>Kỹ năng sống, kỹ năng công việc, kỹ năng lãnh đạo, mẹo vặt cuộc sống, những điều có thể bạn chưa biết, những câu nói hay về cuộc sống, câu nói nổi tiếng của Jack Ma, Bill Gate, Steve Jobs...</p>
-      </div>
-    </div>
-  </body>
+</head>
+<body>
+
+<h2 style="text-align:center;">Website Hùng Blog</h2>
+
+<div class="tab">
+  <button class="tablinks active" onclick="openTab(event, 'congnghe1')">Làng Công nghệ</button>
+  <button class="tablinks" onclick="openTab(event, 'congnghe2')">Công nghệ</button>
+  <button class="tablinks" onclick="openTab(event, 'cuocsong')">Cuộc sống</button>
+</div>
+
+<!-- TAB 1 -->
+<div id="congnghe1" class="tabcontent active">
+  <h3>Làng Công nghệ</h3>
+  <p>Cập nhật những xu hướng, khám phá, nghiên cứu mới nhất về khoa học công nghệ.</p>
+</div>
+
+<!-- TAB 2 -->
+<div id="congnghe2" class="tabcontent">
+  <h3>Công nghệ</h3>
+  <p>Bao gồm thủ thuật, hướng dẫn sử dụng phần mềm, phần cứng, sửa lỗi mạng, Windows, macOS, Linux...</p>
+</div>
+
+<!-- TAB 3 -->
+<div id="cuocsong" class="tabcontent">
+  <h3>Cuộc sống</h3>
+  <p>Kỹ năng sống, kỹ năng công việc, kỹ năng lãnh đạo, mẹo vặt cuộc sống, câu nói hay...</p>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+  let i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].classList.remove("active");
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+</script>
+
+</body>
 </html>
