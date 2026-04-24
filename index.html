@@ -1,20 +1,77 @@
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <title>Danh sách File Download by HungBlog.Com</title>
+<meta charset="UTF-8">
+<title>Hung Blog All In One</title>
 <link href="/favicon.ico" rel='icon' type='image/x-icon' />
-  <style>table{width:90%;margin:20px auto;border-collapse:collapse}th,td{padding:10px 15px;text-align:left;border:1px solid #ccc}th{background-color:#f2f2f2}.table-full{width:100%}table{width:70%;margin:30px auto;border-collapse:collapse;font-family:Arial,sans-serif;font-size:15px;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.1);border-radius:8px;overflow:hidden}th{background:linear-gradient(135deg,#4CAF50,#2E7D32);color:white;padding:12px;text-transform:uppercase;letter-spacing:0.5px}td{padding:12px;border-bottom:1px solid #eee}tr:nth-child(even){background-color:#f9f9f9}tr:hover{background-color:#f1f7ff;transition:0.3s}a{color:#1a73e8;text-decoration:none;font-weight:500}a:hover{text-decoration:underline}td:first-child,th:first-child{text-align:center;width:60px}td:nth-child(2),th:nth-child(2){width:40%} 
-  .download{background:#4CAF50;color:white;padding:6px 12px;border-radius:5px;text-decoration:none}.download:hover{background:#388E3C}</style>
+<style>
+body {
+  font-family: Arial;
+}
+
+/* TAB MENU */
+.tab {
+  display: flex;
+  background: #5b2c6f;
+}
+
+.tab button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(135deg,#4CAF50,#2E7D32);
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background: linear-gradient(135deg,#4CAF50,#2E7D32);
+}
+
+.tab button.active {
+  background: linear-gradient(135deg,#4CAF50,#2E7D32);
+  font-weight: bold;
+}
+
+/* TAB CONTENT */
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+/* Hiện tab đầu */
+.tabcontent.active {
+  display: block;
+}
+  table{width:100%;margin:20px auto;border-collapse:collapse}th,td{padding:10px 15px;text-align:left;border:1px solid #ccc}th{background-color:#f2f2f2}.table-full{width:100%}table{width:100%;margin:30px auto;border-collapse:collapse;font-family:Arial,sans-serif;font-size:15px;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.1);border-radius:8px;overflow:hidden}th{background:linear-gradient(135deg,#4CAF50,#2E7D32);color:white;padding:12px;text-transform:uppercase;letter-spacing:0.5px}td{padding:12px;border-bottom:1px solid #eee}tr:nth-child(even){background-color:#f9f9f9}tr:hover{background-color:#f1f7ff;transition:0.3s}a{color:#1a73e8;text-decoration:none;font-weight:500}a:hover{text-decoration:underline}td:first-child,th:first-child{text-align:center;width:60px}td:nth-child(2),th:nth-child(2){width:40%} 
+  .download{background:#4CAF50;color:white;padding:6px 12px;border-radius:5px;text-decoration:none}.download:hover{background:#388E3C}
+</style>
+
 </head>
-  <center><a href='/'><img src='/hung-blog-webp.png'/></a></center>
-  <body><center>
+<body>
+<center><img src='/hung-blog-webp.png'/></center>
+<h2 style="text-align:center;">Hùng Blog Share Theme And Tips</h2>
+
+<div class="tab">
+  <button class="tablinks active" onclick="openTab(event, 'congnghe1')">Theme Blogger</button>
+  <button class="tablinks" onclick="openTab(event, 'congnghe2')">Theme WordPress</button>
+  <button class="tablinks" onclick="openTab(event, 'cuocsong')">Tips HTML, CSS, JAVASCRIPT...</button>
+</div>
+
+<!-- TAB 1 -->
+<div id="congnghe1" class="tabcontent active">
+ <!-- <h3>Theme Blogger</h3> -->
     <table> <!-- border="1" style="border-collapse: collapse; width: 50%; -->
   <thead>
-    <tr style="background-color: #f2f2f2;">
+   <!-- <tr style="background-color: #f2f2f2;">
       <th>STT</th>
       <th>Name</th>
       <th>🚀 Demo</th>
       <th>📥 Download</th>
-    </tr>
+    </tr> -->
   </thead>
   <tbody>
     <tr>
@@ -81,8 +138,39 @@
     
   </tbody>
       
-</table></center>
-<br/>
-    <center>Bản quyền sản phẩm thuộc © <a href='https://hungblog.com' target='_blank'>Lê Hùng</a></center>
-  </body>
+</table>
+</div>
+
+<!-- TAB 2 -->
+<div id="congnghe2" class="tabcontent">
+  <h3>Theme WordPress</h3>
+  <p>Đang cập nhật nội dung</p>
+</div>
+
+<!-- TAB 3 -->
+<div id="cuocsong" class="tabcontent">
+  <h3>Tips HTML, CSS, JAVASCRIPT...</h3>
+  <p>Đang cập nhật nội dung thủ thuật.</p>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+  let i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].classList.remove("active");
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+</script>
+
+</body>
 </html>
